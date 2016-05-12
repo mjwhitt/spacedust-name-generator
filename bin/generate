@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+$:.push File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib'))
+
+require 'name_generator'
+
+name = NameGenerator.new
+
+puts name.name while true
