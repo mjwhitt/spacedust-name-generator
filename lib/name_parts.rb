@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require 'pp'
+
 # Make it easier to select something from the arrays of data.
 class Array
   def setrng(rng)
@@ -130,5 +132,37 @@ module NameParts
      [:ay,:aw,:ah,:ey,:ew,:eh,:oy,:ow,:oh,:uy,:uh,:ooy,:ooh,:oow],
     ],
   ]
+
+  # debug, inspect name parts chances
+  
+  def dump
+    dump_print("PREFIX", dump_sub(PREFIX, 1.0, {}))
+    dump_print("CONSONANTS", dump_sub(CONSONANTS, 1.0, {}))
+    dump_print("VOWELS", dump_sub(VOWELS, 1.0, {}))
+    dump_print("SUFFIX", dump_sub(SUFFIX, 1.0, {}))
+  end
+
+  def dump_sub(array, percent, hash)
+    sub_percent = percent / array.count
+
+    array.each do |a|
+      if a.is_a?(Array)
+        dump_sub(a, sub_percent, hash)
+      else
+        hash[a] ||= 0
+        hash[a] += sub_percent
+      end
+    end
+
+    hash
+  end
+
+  def dump_print(header, hash)
+    puts "#{header}:"
+    puts hash.keys.map { |s| s.to_s }.inspect
+    puts "{ " + hash.values.map { |s| (s.round(5)*100000).to_i }.join(", ") + " }"
+    puts "Total: " + hash.values.map { |s| (s.round(5)*100000).to_i }.inject(:+).to_s
+    puts
+  end
 
 end

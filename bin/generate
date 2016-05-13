@@ -16,13 +16,16 @@ options = Trollop::options do
   opt :prefix, "Prefix for name",:type => :string
   opt :suffix, "Suffix for name",:type => :string
   opt :filter, "Filter bad words",:type => :boolean
-  opt :verbose, "Print extra messages to STDERR",:type => :boolean
-  banner ""
+  opt :verbose, "Print debug messages to stderr",:type => :boolean
+  opt :dump, "Print name part statistics instead",:type => :boolean
+  banner  ""
 end
 
 generator = NameGenerator.new(options)
 
-if options[:number].nil?
+if options[:dump]
+  generator.dump
+elsif options[:number].nil?
   puts generator.name while true
 else
   options[:number].times { puts generator.name }
