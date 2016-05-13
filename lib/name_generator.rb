@@ -18,9 +18,9 @@ class NameGenerator
 
   def name(parts=[])
     if parts.empty?
-      @length = choose_length
-      @ending = SUFFIX.choose
-      parts << PREFIX.choose
+      @length = @options[:length].nil? ? choose_length : @options[:length]
+      @ending = @options[:suffix].nil? ? SUFFIX.choose : @options[:suffix].dup
+      parts << (@options[:prefix].nil? ? PREFIX.choose : @options[:prefix].dup)
       parts << VOWELS.choose
     else
       parts << CONSONANTS.choose

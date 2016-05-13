@@ -12,6 +12,9 @@ options = Trollop::options do
   banner  ""
   opt :seed, "Random number generator seed",:type => :int
   opt :number, "Number of names to generate",:type => :int
+  opt :length, "Fixed length for name",:type => :int
+  opt :prefix, "Prefix for name",:type => :string
+  opt :suffix, "Suffix for name",:type => :string
   opt :filter, "Filter bad words",:type => :boolean
   opt :verbose, "Print extra messages to STDERR",:type => :boolean
   banner ""

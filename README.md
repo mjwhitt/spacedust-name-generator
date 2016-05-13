@@ -9,10 +9,6 @@ name generation experiments for [spacedust](http://www.spacedust.info)
 * low chance of weird letter combinations
 * not too many duplicates in ~500,000 names
 
-**todo**
-
-* prefix or suffix for the names
-
 **installation**
 
 1. git clone git@github.com:mjwhitt/spacedust-name-generator.git
