@@ -12,7 +12,9 @@ class NameGenerator
     0.128889, 0.088889, 0.0594445, 0.0394445,
   ]
 
-  def inititialize(seed=nil)
+  def initialize(seed=nil)
+    @rng = seed.nil? ? Random.new : Random.new(seed)
+    setrng(@rng)
   end
 
   def name(parts=[])
@@ -46,8 +48,8 @@ class NameGenerator
       parts[-1] = parts.last.to_s.sub(/ /, '') unless @ending.size == 1
   
       # apply numbers
-      @ending.sub!(/#/, (rand(98)+2).to_s)
-      @ending.sub!(/#/, (rand(98)+2).to_s)
+      @ending.sub!(/#/, (@rng.rand(98)+2).to_s)
+      @ending.sub!(/#/, (@rng.rand(98)+2).to_s)
   
       format(parts << @ending)
     end
@@ -55,7 +57,7 @@ class NameGenerator
 
   # Choose a length for a name.
   def choose_length
-    choice = rand
+    choice = @rng.rand
     LENGTH_CHANCES.length.times { |i| return i+1 if choice <= LENGTH_CHANCES[0..i].inject(:+) }
   end
   

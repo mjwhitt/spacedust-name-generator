@@ -2,13 +2,29 @@
 
 # Make it easier to select something from the arrays of data.
 class Array
+  def setrng(rng)
+    @rng = rng
+  end
+
   def choose
-    item = self.sample
-    item.is_a?(Array) ? item.choose : item
+    item = self.sample(random: @rng)
+    item.is_a?(Array) ? item.choose_sub(@rng) : item
+  end
+
+  def choose_sub(rng)
+    item = self.sample(random: rng)
+    item.is_a?(Array) ? item.choose_sub(rng) : item
   end
 end
 
 module NameParts
+
+  def setrng(rng)
+    PREFIX.setrng(rng)
+    CONSONANTS.setrng(rng)
+    VOWELS.setrng(rng)
+    SUFFIX.setrng(rng)
+  end
 
   # Names start with more variety than simple consonants or vowels.
   PREFIX = [
