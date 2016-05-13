@@ -6,11 +6,7 @@ class NameGenerator
   include NameParts
 
   # Modified weights so higher chances of short names and lower chances of really long names.
-  LENGTH_CHANCES = [
-    0, 0.00001, 0.0001, 0.001, 0.01,
-    0.078889, 0.296667, 0.296667,
-    0.128889, 0.088889, 0.0594445, 0.0394445,
-  ]
+  LENGTH_CHANCES = [ 0, 0.00001, 0.0001, 0.001, 0.00889, 0.09, 0.30, 0.30, 0.12, 0.09, 0.06, 0.03 ]
 
   def initialize(seed=nil)
     @rng = seed.nil? ? Random.new : Random.new(seed)
