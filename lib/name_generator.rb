@@ -1,15 +1,18 @@
 #!/usr/bin/env ruby
 
 require 'name_parts'
+require 'bad_word_filter'
 
 class NameGenerator
   include NameParts
+  include BadWordFilter
 
   # Modified weights so higher chances of short names and lower chances of really long names.
   LENGTH_CHANCES = [ 0, 0.00001, 0.0001, 0.001, 0.00889, 0.09, 0.30, 0.30, 0.12, 0.09, 0.06, 0.03 ]
 
-  def initialize(seed=nil)
-    @rng = seed.nil? ? Random.new : Random.new(seed)
+  def initialize(options)
+    @options = options
+    @rng = @options[:seed].nil? ? Random.new : Random.new(@options[:seed])
     setrng(@rng)
   end
 
@@ -59,7 +62,7 @@ class NameGenerator
   
   # Combine and capitalize.
   def format(n)
-    n.join.split.map(&:capitalize).join(' ').gsub(/-(.)/, &:upcase)
+    (@options[:filter] ? filter(n.join, @options[:verbose]) : n.join).split.map(&:capitalize).join(' ').gsub(/-(.)/, &:upcase)
   end
 
 end

@@ -11,7 +11,6 @@ name generation experiments for [spacedust](http://www.spacedust.info)
 
 **todo**
 
-* bad word filter
 * prefix or suffix for the names
 
 **installation**

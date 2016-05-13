@@ -10,12 +10,14 @@ require 'name_generator'
 options = Trollop::options do
   banner  "Usage: generate [options]"
   banner  ""
-  opt :number, "Number of names to generate",:type => :int
   opt :seed, "Random number generator seed",:type => :int
+  opt :number, "Number of names to generate",:type => :int
+  opt :filter, "Filter bad words",:type => :boolean
+  opt :verbose, "Print extra messages to STDERR",:type => :boolean
   banner ""
 end
 
-generator = NameGenerator.new(options[:seed])
+generator = NameGenerator.new(options)
 
 if options[:number].nil?
   puts generator.name while true
