@@ -1,8 +1,24 @@
 #!/usr/bin/env ruby
 $:.push File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib'))
 
+require 'rubygems'
+require 'bundler/setup'
+require 'trollop'
+
 require 'name_generator'
 
-name = NameGenerator.new
+options = Trollop::options do
+  banner  "Usage: generate [options]"
+  banner  ""
+  opt :number, "Number of names to generate",:type => :int
+  opt :seed, "Random number generator seed",:type => :int
+  banner ""
+end
 
-puts name.name while true
+generator = NameGenerator.new(options[:seed])
+
+if options[:number].nil?
+  puts generator.name while true
+else
+  options[:number].times { puts generator.name }
+end

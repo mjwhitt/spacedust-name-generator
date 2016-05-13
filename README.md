@@ -12,29 +12,35 @@ name generation experiments for [spacedust](http://www.spacedust.info)
 **todo**
 
 * bad word filter
-* seeded random number generator
 * prefix or suffix for the names
-* command line options
 
-**examples**
+**installation**
 
-* Nono Zu Po
-* Datoto Du 42
-* Xechi 21
-* Gudimige
-* Badoobe
-* Binage-Ci
-* Mo-Luli
-* Zelucash
-* Mee-Mo 4447
-* Vo Bali'si
-* Ma La'noo 49
-* Yenaloffipisu
-* Vapu-Pefa
-* Noobicki Da
-* Ho-Beese
-* Qepalu No-Mi
-* Frobugago To 97
-* Xoolufipi
-* Flu Tall
-* Yoo'sero
+1. git clone git@github.com:mjwhitt/spacedust-name-generator.git
+2. cd spacedust-name-generator/
+3. bundle install --path vendor/
+
+**example**
+
+> ./bin/generate -s 0 -n 20
+
+* Dro Foona
+* Qafa Beh
+* Bra-Notidam
+* Yeripe Ro
+* Roritugu
+* Zee Rolazz
+* Troisi'norire
+* Vi'sesox
+* Osojootho
+* Cuthafoe'pa
+* Thobu Moe Pepo
+* Doxoitaso
+* Xu Fo Re-Du 12
+* Picee 2
+* Blotagath
+* Vee'luloo No
+* Loo Riss
+* Agafopo 34
+* Vanagesu
+* Qeelonum
