@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'pp'
-
 # Make it easier to select something from the arrays of data.
 class Array
   def setrng(rng)
@@ -16,6 +14,36 @@ class Array
   def choose_sub(rng)
     item = self.sample(random: rng)
     item.is_a?(Array) ? item.choose_sub(rng) : item
+  end
+end
+
+# Make it easier to convert numbers to roman numerals.
+class Integer
+  ROMAN = {
+    1000 => 'M',
+    900  => 'CM',
+    500  => 'D',
+    400  => 'CD',
+    100  => 'C',
+    90   => 'XC',
+    50   => 'L',
+    40   => 'XL',
+    10   => 'X',
+    9    => 'IX',
+    5    => 'V',
+    4    => 'IV',
+    1    => 'I',
+  }
+
+  def to_roman
+    roman  = ''
+    number = self
+    ROMAN.keys.each do |divisor|
+      quotient, modulus = number.divmod(divisor)
+      roman << ROMAN[divisor] * quotient
+      number = modulus
+    end
+    roman
   end
 end
 
@@ -104,7 +132,7 @@ module NameParts
     # no ending (vowel)
     [:''],
     # vowel + number
-    [:'',[:' #',:' #',:' #',:' ##']],
+    [:'',[:' #',:' #',:' #',:' #',:' ##',:' @']],
     # some sort of ending
     [
      # normal consonant combinations

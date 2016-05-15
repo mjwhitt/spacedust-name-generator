@@ -26,7 +26,7 @@ class NameGenerator
       parts << CONSONANTS.choose
       
       # don't start with a double consonant
-      parts[-1] = parts[-1].to_s.chop if CONSONANTS.last.member?(parts[-1]) && parts[-2] =~ /[ \-']$/
+      parts[-1] = parts[-1].to_s.reverse.chop if CONSONANTS.last.member?(parts[-1]) && parts[-2] =~ /[ \-']$/
       
       parts << VOWELS.choose
     end
@@ -49,8 +49,9 @@ class NameGenerator
       # apply numbers
       @ending.sub!(/#/, (@rng.rand(98)+2).to_s)
       @ending.sub!(/#/, (@rng.rand(98)+2).to_s)
-  
-      format(parts << @ending)
+ 
+      # format then apply roman numerals
+      format(parts << @ending).sub(/@/, (@rng.rand(19)+1).to_roman)
     end
   end
 

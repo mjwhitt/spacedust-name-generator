@@ -17,25 +17,25 @@ name generation experiments for [spacedust](http://www.spacedust.info)
 
 **example**
 
-> ./bin/generate -s 0 -n 20
+> ./bin/generate -s 1138 -n 20
 
-* Dro Foona
-* Qafa Beh
-* Bra-Notidam
-* Yeripe Ro
-* Roritugu
-* Zee Rolazz
-* Troisi'norire
-* Vi'sesox
-* Osojootho
-* Cuthafoe'pa
-* Thobu Moe Pepo
-* Doxoitaso
-* Xu Fo Re-Du 12
-* Picee 2
-* Blotagath
-* Vee'luloo No
-* Loo Riss
-* Agafopo 34
-* Vanagesu
-* Qeelonum
+* Lee Ni Bu
+* Yoolipa 45
+* Bee Tuboo
+* Cirida-Di
+* Kuvodua
+* Kabe-Lalige
+* Bidesa
+* Kirrese
+* Tasimu Coi
+* Lanu Cuna
+* Zedobegu
+* Bu Noinadu
+* Foo Rugone-Go
+* Meeso Fo
+* Huddeca
+* Ilosabosh
+* Velisa 53
+* Brabeggatou
+* Whamoma Tho
+* Veki Meg
