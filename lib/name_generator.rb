@@ -45,13 +45,17 @@ class NameGenerator
   
       # don't end with a space before @ending unless @ending is one character
       parts[-1] = parts.last.to_s.sub(/ /, '') unless @ending.size == 1
-  
-      # apply numbers
-      @ending.sub!(/#/, (@rng.rand(98)+2).to_s)
-      @ending.sub!(/#/, (@rng.rand(98)+2).to_s)
  
-      # format then apply roman numerals
-      format(parts << @ending).sub(/@/, (@rng.rand(19)+1).to_roman)
+      if @options[:simple]
+        format(parts << @ending).gsub(/[@# \-']/, "").capitalize
+      else
+        # apply numbers
+        @ending.sub!(/#/, (@rng.rand(98)+2).to_s)
+        @ending.sub!(/#/, (@rng.rand(98)+2).to_s)
+
+        # format then apply roman numerals
+        format(parts << @ending).sub(/@/, (@rng.rand(19)+1).to_roman)
+      end
     end
   end
 
