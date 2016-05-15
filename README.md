@@ -39,3 +39,7 @@ name generation experiments for [spacedust](http://www.spacedust.info)
 * Brabeggatou
 * Whamoma Tho
 * Veki Meg
+
+**see also**
+
+* [New Names](http://spacedust.info/2016/05/new-names/)
